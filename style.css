@@ -3,7 +3,7 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007BFF;
+    background-color: #84a0bd;
     color: white;
     border: none;
     height: 60px;
@@ -11,9 +11,8 @@ button {
 }
 
 button:hover {
-    background-color: #425161;
+    background-color: #c3d4e6;
 }
-
 
 
 /* Imposta il corpo per utilizzare flexbox, allineamento verticale */
@@ -24,7 +23,7 @@ body {
     height: 100vh;            /* Imposta l'altezza a 100% della viewport */
     margin: 0;                /* Rimuove i margini predefiniti */
     flex-direction: column;   /* Organizza gli elementi in una colonna */
-    background-color: rgba(79, 79, 79, 0.742); /* Colore di sfondo della pagina */
+    background-color: rgba(26, 30, 26, 0.927); /* Colore di sfondo della pagina */
     justify-content: center;
 }
 
@@ -64,7 +63,7 @@ h2 {
     width: 80px;
     height: 80px;
     margin: 0 10px;
-    background-color: #4caf50;
+    background-color: #42502371;
     color: white;
     font-size: 16px;
     border-radius: 5px;

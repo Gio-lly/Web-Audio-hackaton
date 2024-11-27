@@ -1,6 +1,4 @@
-document.getElementById("change-page-btn").addEventListener('click',()=>{
-    document.querySelector(".console").classList.toggle('hidden');
-});
+
 
 
 ///////////////////////////////MIXER///////////////////////////
