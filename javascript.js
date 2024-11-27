@@ -1,3 +1,8 @@
+document.getElementById("change-page-btn").addEventListener('click',()=>{
+    document.querySelector(".console").classList.toggle('hidden');
+});
+
+
 ///////////////////////////////MIXER///////////////////////////
 
 const kickGain = new Tone.Gain(0.5).toDestination(); // Volume ridotto al 50%
