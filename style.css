@@ -1,0 +1,77 @@
+/* Stile per i bottoni */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    height: 60px;
+    margin: 10px; /* Aggiunge uno spazio tra i bottoni */
+}
+
+button:hover {
+    background-color: #425161;
+}
+
+
+
+/* Imposta il corpo per utilizzare flexbox, allineamento verticale */
+body {
+    position:relative;
+    display: flex;
+    align-items: center;      /* Centra orizzontalmente */
+    height: 100vh;            /* Imposta l'altezza a 100% della viewport */
+    margin: 0;                /* Rimuove i margini predefiniti */
+    flex-direction: column;   /* Organizza gli elementi in una colonna */
+    background-color: rgba(79, 79, 79, 0.742); /* Colore di sfondo della pagina */
+    justify-content: center;
+}
+
+
+/* Definisci il cerchio */
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    margin: 20px;
+    visibility: hidden;
+}
+
+#visual_container {
+    display: flex;
+    flex-direction: row; 
+}
+
+h2 {
+    margin-top: -10px;
+}
+.console {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+#page-selector{
+    position:absolute;
+    top: 10px;
+    left:10p
+}
