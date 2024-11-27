@@ -1,5 +1,8 @@
 document.getElementById("change-page-btn").addEventListener('click',()=>{
     document.querySelector(".console").classList.toggle('hidden');
+    document.getElementById("play-bn").classList.toggle('hidden');
+    document.getElementById("stop-btn").classList.toggle('hidden');
+    Tone.close();
 });
 ///////////////////////////////MIXER///////////////////////////
 //filters
@@ -170,19 +173,159 @@ async function play() {
     }
 
 }
+let cassa = document.querySelector('.kick');
+let rullante = document.querySelector('.snare');
+let charlie = document.querySelector('.hihat');
+let arpe = document.querySelector('.arpeggio');
+let lead = document.querySelector('.lead');
+let basso = document.querySelector('.bass');
+
+let isKickActive = false;
+let isSnareActive = false;
+let isHiHatActive = false;
+let isArpeggioActive = false;
+let isLeadActive = false;
+let isBassActive = false;
 
 
-async function pauseAudio() {
+cassa.addEventListener('click', () => {
+    const context = Tone.getContext().rawContext;
+    cassa.classList.toggle('running');
+    if (context.state === "suspended") {
+        Tone.context.resume();
+    } else {
+        Tone.start();
+        Tone.Transport.bpm.value = 126;
+        Tone.Transport.start(); // Inizia il trasporto
 
-    await Tone.getContext().rawContext.suspend(); // Sospendi il contesto audio
-    console.log("AudioContext sospeso");
+        if (isKickActive) {
+    
+            kickloop.stop();
+            isKickActive = false;
 
-}
+        } else {
+
+            Tone.Transport.scheduleOnce((time) => {
+                kickloop.start(time);
+            }, Tone.Transport.nextSubdivision('4n'));
+            isKickActive = true;
+        }
+    }
+});
+
+rullante.addEventListener('click', () => {
+    const context = Tone.getContext().rawContext;
+    rullante.classList.toggle('running');
+    if (context.state === "suspended") {
+        Tone.context.resume();
+    } else {
+        Tone.start();
+        Tone.Transport.bpm.value = 126;
+        Tone.Transport.start();
+
+        if (isSnareActive) {
+            snareloop.stop();
+            isSnareActive = false;
+        } else {
+            Tone.Transport.scheduleOnce((time) => {
+                snareloop.start(time);
+            }, Tone.Transport.nextSubdivision('4n'));
+            isSnareActive = true;
+        }
+    }
+});
+
+charlie.addEventListener('click', () => {
+    const context = Tone.getContext().rawContext;
+    charlie.classList.toggle('running');
+    if (context.state === "suspended") {
+        Tone.context.resume();
+    } else {
+        Tone.start();
+        Tone.Transport.bpm.value = 126;
+        Tone.Transport.start();
+
+        if (isHiHatActive) {
+            hihatloop.stop();
+            isHiHatActive = false;
+        } else {
+            Tone.Transport.scheduleOnce((time) => {
+                hihatloop.start(time);
+            }, Tone.Transport.nextSubdivision('4n'));
+            isHiHatActive = true;
+        }
+    }
+});
 
 
-async function resumeAudio() {
+arpe.addEventListener('click', () => {
+    const context = Tone.getContext().rawContext;
+    arpe.classList.toggle('running');
+    if (context.state === "suspended") {
+        Tone.context.resume();
+    } else {
+        Tone.start();
+        Tone.Transport.bpm.value = 126;
+        Tone.Transport.start();
 
-    await Tone.getContext().rawContext.resume(); // Riprendi il contesto audio
-    console.log("AudioContext ripreso");
+        if (isArpeggioActive) {
+            arpeggio.stop();
+            isArpeggioActive = false;
+        } else {
+            Tone.Transport.scheduleOnce((time) => {
+                arpeggio.start(time);
+            }, Tone.Transport.nextSubdivision('4n'));
+            isArpeggioActive = true;
+        }
+    }
+});
 
-}
+// Pulsante per il lead (melodia)
+lead.addEventListener('click', () => {
+    const context = Tone.getContext().rawContext;
+    lead.classList.toggle('running');
+    if (context.state === "suspended") {
+        Tone.context.resume();
+    } else {
+        Tone.start();
+        Tone.Transport.bpm.value = 126;
+        Tone.Transport.start();
+
+        if (isLeadActive) {
+            kalimba1Part.stop();
+            kalimba2Part.stop();
+            isLeadActive = false;
+        } else {
+            Tone.Transport.scheduleOnce((time) => {
+                kalimba1Part.start(time);
+                kalimba2Part.start(time);
+            }, Tone.Transport.nextSubdivision('4n'));
+            isLeadActive = true;
+        }
+    }
+});
+
+// Pulsante per il basso (bass)
+basso.addEventListener('click', () => {
+    const context = Tone.getContext().rawContext;
+    basso.classList.toggle('running');
+    if (context.state === "suspended") {
+        Tone.context.resume();
+    } else {
+        Tone.start();
+        Tone.Transport.bpm.value = 126;
+        Tone.Transport.start();
+
+        if (isBassActive) {
+    
+            bass_part.stop();
+            isBassActive = false;
+        } else {
+
+            Tone.Transport.scheduleOnce((time) => {
+                bass_part.start(time);
+            }, Tone.Transport.nextSubdivision('4n'));
+            isBassActive = true;
+        }
+    }
+});

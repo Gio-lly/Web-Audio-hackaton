@@ -6,10 +6,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const playButton = document.createElement("button");
     playButton.textContent = "Play";
-    
+    playButton.id="play-bn"
     const stopButton = document.createElement("button");
     stopButton.textContent = "Stop";
-
+    stopButton.id="stop-btn";
     document.body.appendChild(playButton);
     document.body.appendChild(stopButton);
 
